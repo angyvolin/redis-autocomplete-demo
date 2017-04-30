@@ -19,8 +19,15 @@ Based on [antirez/search.php][2].
 
 ### Run php web server
 
-    REDIS_URL='redis://localhost:6379' composer run
+    composer run
 
+### Customize redis options:
+
+    REDIS_URL='redis://localhost:6379' composer run
+    
+or
+
+    REDIS_URL='redis://user:pass@localhost:6379' composer run
 
 [1]: https://www.mso.anu.edu.au/~ralph/OPTED/"
 [2]: https://gist.github.com/antirez/11126283
