@@ -37,7 +37,7 @@
 
         <div class="ui-widget">
             <label for="query">Query: </label>
-            <input id="query" placeholder="Type few first letters starting with 'a', 'b' or 'c'">
+            <input id="query" placeholder="Type first 2 letters starting with 'a', 'b' or 'c'">
         </div>
     </div>
 
@@ -45,7 +45,7 @@
         $(function() {
             $('#query').autocomplete({
                 source: 'search.php',
-                minLength: 1
+                minLength: 3
             }).focus();
         });
     </script>
