@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Redis Autocomplete</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <style>
+        body>div {max-width: 700px; padding-top: 100px; margin: 0 auto;}
+        small {display: block; font-size: 75%; font-weight: normal;}
+        .ui-autocomplete-loading {background: yellow;}
+        .ui-widget input {font-size: 12px; line-height: 2em; width: 85%; outline: none;}
+    </style>
+</head>
+<body>
+    <div>
+        <h2>
+            Redis autocomplete using ZRANGEBYLEX demo.
+            <small>Based on <a href="http://autocomplete.redis.io/">http://autocomplete.redis.io/</a></small>
+        </h2>
+
+        <section>
+            <p>
+                Every time the user types something, the page sends a request to a small PHP snippet called
+                <a href="https://gist.github.com/angyvolin/435e5934e78f1f6ae921736f236c3dca"><i>search.php</i></a>
+                which sends a query to Redis, and returns the result to the web page as a JSON array.
+            </p>
+
+            <p>
+                Autocomplete data was composed from word definitions started from 'a', 'b' and 'c' letters taken from <br>
+                <a href="https://www.mso.anu.edu.au/~ralph/OPTED/">The Online Plain Text English Dictionary</a>
+            </p>
+
+            <p>As you type in the input field below, you'll see the list of suggestions appearing.</p>
+        </section>
+
+        <div class="ui-widget">
+            <label for="query">Query: </label>
+            <input id="query" placeholder="Type few first letters starting with 'a', 'b' or 'c'">
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            $('#query').autocomplete({
+                source: 'search.php',
+                minLength: 1
+            }).focus();
+        });
+    </script>
+</body>
+</html>
