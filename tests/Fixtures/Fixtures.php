@@ -24,7 +24,7 @@ class Fixtures
      */
     public function load()
     {
-        foreach (['a', 'b', 'c'] as $letter) {
+        foreach (['a', 'b', 'c1', 'c2'] as $letter) {
             $file = __DIR__.'/'.$letter.'.txt';
             $lines = file($file);
             $data = array_fill_keys($lines, 0);
