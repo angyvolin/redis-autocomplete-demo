@@ -15,7 +15,7 @@ Based on [antirez/search.php][2].
 
 ### Populate redis with autocomplete data
 
-    composer run populate
+    composer fixtures
 
 ### Run php web server
 
